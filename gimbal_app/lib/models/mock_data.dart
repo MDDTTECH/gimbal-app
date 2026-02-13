@@ -27,9 +27,9 @@ class GimbalState {
     double? signalStrength,
   }) {
     return GimbalState(
-      pan: pan ?? this.pan,
-      tilt: tilt ?? this.tilt,
-      roll: roll ?? this.roll,
+      pan: (pan ?? this.pan).clamp(-180.0, 180.0),
+      tilt: (tilt ?? this.tilt).clamp(-90.0, 90.0),
+      roll: (roll ?? this.roll).clamp(-180.0, 180.0),
       isConnected: isConnected ?? this.isConnected,
       batteryPercent: batteryPercent ?? this.batteryPercent,
       mode: mode ?? this.mode,

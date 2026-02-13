@@ -119,8 +119,8 @@ class _DashboardScreenState extends State<DashboardScreen> {
                   onChanged: (offset) {
                     setState(() {
                       _gimbalState = _gimbalState.copyWith(
-                        pan: _gimbalState.pan + offset.dx * 2,
-                        tilt: _gimbalState.tilt + offset.dy * 2,
+                        pan: (_gimbalState.pan + offset.dx * 2).clamp(-180.0, 180.0),
+                        tilt: (_gimbalState.tilt + offset.dy * 2).clamp(-90.0, 90.0),
                       );
                     });
                   },
