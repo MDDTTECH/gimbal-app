@@ -31,14 +31,17 @@ class _HomeScreenState extends State<HomeScreen> {
       body: AnimatedBackground(
         child: Stack(
           children: [
-            // Screen content
-            AnimatedSwitcher(
-              duration: const Duration(milliseconds: 300),
-              switchInCurve: Curves.easeOut,
-              switchOutCurve: Curves.easeIn,
-              child: KeyedSubtree(
-                key: ValueKey(_currentIndex),
-                child: _screens[_currentIndex],
+            // Screen content with bottom padding for nav bar
+            Padding(
+              padding: const EdgeInsets.only(bottom: 104),
+              child: AnimatedSwitcher(
+                duration: const Duration(milliseconds: 300),
+                switchInCurve: Curves.easeOut,
+                switchOutCurve: Curves.easeIn,
+                child: KeyedSubtree(
+                  key: ValueKey(_currentIndex),
+                  child: _screens[_currentIndex],
+                ),
               ),
             ),
             // Bottom nav
